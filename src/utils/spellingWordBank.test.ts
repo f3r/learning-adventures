@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { getWordBank, saveWordBank, addWord, removeWord, resetWordBank } from './spellingWordBank'
+import { getWordBank, addWord, removeWord, resetWordBank } from './spellingWordBank'
 import { SPELLING_WORDS } from '../constants/spelling'
 
 describe('spellingWordBank', () => {
