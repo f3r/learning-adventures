@@ -5,7 +5,7 @@ interface FeedbackProps {
   readonly show: boolean
   readonly isCorrect: boolean
   readonly points: number
-  readonly correctAnswer?: number
+  readonly correctAnswer?: number | string
   readonly questionKey: string
 }
 
