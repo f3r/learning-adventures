@@ -39,7 +39,7 @@ export function WelcomeScreen() {
 
       <div>
         <h1 className="text-5xl font-extrabold text-white mb-2">
-          Kai&apos;s Learning
+          Learnbury
         </h1>
         <h2 className="text-3xl font-bold text-cyan-300">
           Adventure
