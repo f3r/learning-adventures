@@ -6,8 +6,8 @@ import type { GameSession } from '../types/game'
 const mockSession: GameSession = {
   selectedTables: [3, 5],
   questions: [
-    { factorA: 3, factorB: 5, answer: 15 },
-    { factorA: 5, factorB: 3, answer: 15 },
+    { factorA: 3, factorB: 5, answer: 15, operation: 'multiply' as const },
+    { factorA: 5, factorB: 3, answer: 15, operation: 'multiply' as const },
   ],
   currentQuestionIndex: 0,
   answers: [],

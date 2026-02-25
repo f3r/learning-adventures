@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { generateQuestions, generateWeakestQuestions, getWeakPairCount, computeWeight, weightedSample } from './questions'
 import type { PerformanceMap, Question } from '../types/game'
 
@@ -369,7 +369,7 @@ describe('weightedSample', () => {
   it('favors higher-weighted items', () => {
     const items = ['rare', 'common']
     const weights = [0.01, 100]
-    const counts = { rare: 0, common: 0 }
+    const counts: Record<string, number> = { rare: 0, common: 0 }
     for (let i = 0; i < 500; i++) {
       const [first] = weightedSample(items, weights, 1)
       counts[first]++

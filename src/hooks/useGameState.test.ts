@@ -3,9 +3,9 @@ import { gameReducer, initialState } from './useGameState'
 import type { GameState, Question } from '../types/game'
 
 const mockQuestions: Question[] = [
-  { factorA: 3, factorB: 4, answer: 12 },
-  { factorA: 5, factorB: 6, answer: 30 },
-  { factorA: 7, factorB: 8, answer: 56 },
+  { factorA: 3, factorB: 4, answer: 12, operation: 'multiply' },
+  { factorA: 5, factorB: 6, answer: 30, operation: 'multiply' },
+  { factorA: 7, factorB: 8, answer: 56, operation: 'multiply' },
 ]
 
 describe('gameReducer', () => {
