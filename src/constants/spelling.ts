@@ -1,16 +1,16 @@
 import type { SpellingWord } from '../types/spelling'
 
 export const SPELLING_WORDS: readonly SpellingWord[] = [
-  { word: 'important', hint: 'Something that matters a lot' },
-  { word: 'therefore', hint: 'For that reason, so' },
-  { word: 'explore', hint: 'To travel and discover new things' },
-  { word: 'normal', hint: 'The usual or expected way' },
-  { word: 'squawk', hint: 'The loud cry a parrot makes' },
-  { word: 'drawing', hint: 'A picture made with pencils or crayons' },
-  { word: 'caught', hint: 'Past tense of catch' },
-  { word: 'August', hint: 'The eighth month of the year' },
-  { word: 'naughty', hint: 'Badly behaved or cheeky' },
-  { word: 'autumn', hint: 'The season between summer and winter' },
+  { word: 'devotion', hint: 'A strong feeling of love or loyalty' },
+  { word: 'meditation', hint: 'Quiet thinking or focusing your mind' },
+  { word: 'celebration', hint: 'A party or event to mark something special' },
+  { word: 'hesitation', hint: 'A pause before doing something' },
+  { word: 'attraction', hint: 'Something that draws people in' },
+  { word: 'exhibition', hint: 'A public display of art or objects' },
+  { word: 'invention', hint: 'Something new that has been created' },
+  { word: 'action', hint: 'The process of doing something' },
+  { word: 'mention', hint: 'To briefly say or write about something' },
+  { word: 'position', hint: 'The place where something is located' },
 ] as const
 
 export const SPELLING_TIMER_DURATION_SECONDS = 60
