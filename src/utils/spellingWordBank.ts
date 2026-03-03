@@ -15,7 +15,8 @@ export function getWordBank(): readonly SpellingWord[] {
         w !== null &&
         typeof w.word === 'string' &&
         typeof w.hint === 'string' &&
-        w.word.length > 0,
+        w.word.length > 0 &&
+        (w.week === undefined || typeof w.week === 'number'),
     )
     return valid.length > 0 ? valid : SPELLING_WORDS
   } catch {
@@ -31,13 +32,16 @@ export function saveWordBank(words: readonly SpellingWord[]): void {
   }
 }
 
-export function addWord(word: string, hint: string): readonly SpellingWord[] {
+export function addWord(word: string, hint: string, week?: number): readonly SpellingWord[] {
   const bank = getWordBank()
   const normalised = word.toLowerCase().trim()
   if (normalised.length === 0) return bank
   if (bank.some(w => w.word.toLowerCase() === normalised)) return bank
 
-  const updated = [...bank, { word: normalised, hint: hint.trim() }]
+  const entry: SpellingWord = week !== undefined
+    ? { word: normalised, hint: hint.trim(), week }
+    : { word: normalised, hint: hint.trim() }
+  const updated = [...bank, entry]
   saveWordBank(updated)
   return updated
 }

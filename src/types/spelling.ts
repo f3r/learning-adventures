@@ -1,6 +1,7 @@
 export interface SpellingWord {
   readonly word: string
   readonly hint: string
+  readonly week?: number
 }
 
 export interface SpellingQuestion {

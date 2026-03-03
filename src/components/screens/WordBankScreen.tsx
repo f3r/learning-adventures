@@ -54,57 +54,76 @@ export function WordBankScreen() {
         <p className="text-xs text-white/50">words</p>
       </div>
 
-      <div className="space-y-2 mb-5">
-        <AnimatePresence>
-          {words.map((w, index) => (
-            <motion.div
-              key={w.word}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20, height: 0 }}
-              transition={{ delay: index * 0.03 }}
-              className="rounded-xl border border-white/10 p-4 bg-white/5 backdrop-blur-sm"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1 min-w-0">
-                  <span className="text-lg font-bold text-white">{w.word}</span>
-                  <p className="text-sm text-white/50 leading-snug">{w.hint}</p>
-                </div>
+      <div className="space-y-5 mb-5">
+        {(() => {
+          const groups = new Map<string, typeof words>()
+          for (const w of words) {
+            const key = w.week !== undefined ? `Week ${w.week}` : 'Custom'
+            groups.set(key, [...(groups.get(key) ?? []), w])
+          }
+          const sortedKeys = [...groups.keys()].sort((a, b) => {
+            if (a === 'Custom') return 1
+            if (b === 'Custom') return -1
+            return parseInt(a.replace('Week ', '')) - parseInt(b.replace('Week ', ''))
+          })
+          return sortedKeys.map(groupKey => (
+            <div key={groupKey}>
+              <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-2 px-1">
+                {groupKey}
+              </p>
+              <AnimatePresence>
+                {(groups.get(groupKey) ?? []).map((w, index) => (
+                  <motion.div
+                    key={w.word}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20, height: 0 }}
+                    transition={{ delay: index * 0.03 }}
+                    className="rounded-xl border border-white/10 p-4 bg-white/5 backdrop-blur-sm mb-2"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1 min-w-0">
+                        <span className="text-lg font-bold text-white">{w.word}</span>
+                        <p className="text-sm text-white/50 leading-snug">{w.hint}</p>
+                      </div>
 
-                <div className="ml-3">
-                  {confirmDelete === w.word ? (
-                    <div className="flex gap-1">
-                      <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => handleRemove(w.word)}
-                        className="w-8 h-8 rounded-lg bg-rose-500/80 text-white text-xs font-bold cursor-pointer"
-                      >
-                        Yes
-                      </motion.button>
-                      <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => setConfirmDelete(null)}
-                        className="w-8 h-8 rounded-lg bg-white/10 text-white/60 text-xs font-bold cursor-pointer"
-                      >
-                        No
-                      </motion.button>
+                      <div className="ml-3">
+                        {confirmDelete === w.word ? (
+                          <div className="flex gap-1">
+                            <motion.button
+                              whileTap={{ scale: 0.9 }}
+                              onClick={() => handleRemove(w.word)}
+                              className="w-8 h-8 rounded-lg bg-rose-500/80 text-white text-xs font-bold cursor-pointer"
+                            >
+                              Yes
+                            </motion.button>
+                            <motion.button
+                              whileTap={{ scale: 0.9 }}
+                              onClick={() => setConfirmDelete(null)}
+                              className="w-8 h-8 rounded-lg bg-white/10 text-white/60 text-xs font-bold cursor-pointer"
+                            >
+                              No
+                            </motion.button>
+                          </div>
+                        ) : (
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setConfirmDelete(w.word)}
+                            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-rose-500/20 text-white/30
+                              hover:text-rose-400 transition-colors cursor-pointer flex items-center justify-center text-sm"
+                            aria-label={`Remove ${w.word}`}
+                          >
+                            &#x2715;
+                          </motion.button>
+                        )}
+                      </div>
                     </div>
-                  ) : (
-                    <motion.button
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => setConfirmDelete(w.word)}
-                      className="w-8 h-8 rounded-lg bg-white/5 hover:bg-rose-500/20 text-white/30
-                        hover:text-rose-400 transition-colors cursor-pointer flex items-center justify-center text-sm"
-                      aria-label={`Remove ${w.word}`}
-                    >
-                      &#x2715;
-                    </motion.button>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          ))
+        })()}
       </div>
 
       <AnimatePresence>
