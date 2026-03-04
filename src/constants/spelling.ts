@@ -1,16 +1,16 @@
 import type { SpellingWord } from '../types/spelling'
 
 export const SPELLING_WORDS: readonly SpellingWord[] = [
-  { word: 'important', hint: 'Something that matters a lot' },
-  { word: 'therefore', hint: 'For that reason, so' },
-  { word: 'explore', hint: 'To travel and discover new things' },
-  { word: 'normal', hint: 'The usual or expected way' },
-  { word: 'squawk', hint: 'The loud cry a parrot makes' },
-  { word: 'drawing', hint: 'A picture made with pencils or crayons' },
-  { word: 'caught', hint: 'Past tense of catch' },
-  { word: 'August', hint: 'The eighth month of the year' },
-  { word: 'naughty', hint: 'Badly behaved or cheeky' },
-  { word: 'autumn', hint: 'The season between summer and winter' },
+  { word: 'devotion', hint: 'A strong feeling of love or loyalty' },
+  { word: 'meditation', hint: 'Thinking deeply and calmly, often to relax' },
+  { word: 'celebration', hint: 'A party or special event for something good' },
+  { word: 'hesitation', hint: 'A pause before doing something, being unsure' },
+  { word: 'attraction', hint: 'Something interesting that draws people in' },
+  { word: 'exhibition', hint: 'A public display of art or objects' },
+  { word: 'invention', hint: 'Something new that someone has created' },
+  { word: 'action', hint: 'The process of doing something' },
+  { word: 'mention', hint: 'To talk about something briefly' },
+  { word: 'position', hint: 'The place where something or someone is' },
 ] as const
 
 export const SPELLING_TIMER_DURATION_SECONDS = 60
