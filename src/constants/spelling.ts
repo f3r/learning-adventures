@@ -1,16 +1,16 @@
 import type { SpellingWord } from '../types/spelling'
 
 export const SPELLING_WORDS: readonly SpellingWord[] = [
-  { word: 'devotion', hint: 'A strong feeling of love or loyalty' },
-  { word: 'meditation', hint: 'Quiet thinking or focusing your mind' },
-  { word: 'celebration', hint: 'A party or event to mark something special' },
-  { word: 'hesitation', hint: 'A pause before doing something' },
-  { word: 'attraction', hint: 'Something that draws people in' },
-  { word: 'exhibition', hint: 'A public display of art or objects' },
-  { word: 'invention', hint: 'Something new that has been created' },
-  { word: 'action', hint: 'The process of doing something' },
-  { word: 'mention', hint: 'To briefly say or write about something' },
-  { word: 'position', hint: 'The place where something is located' },
+  { word: 'expression', hint: 'A look on your face that shows how you feel' },
+  { word: 'discussion', hint: 'A talk between people about a topic' },
+  { word: 'confession', hint: 'Telling someone something you did wrong' },
+  { word: 'permission', hint: 'When someone says you are allowed to do something' },
+  { word: 'admission', hint: 'Being let in, or saying something is true' },
+  { word: 'mission', hint: 'An important job or task to complete' },
+  { word: 'possession', hint: 'Something that belongs to you' },
+  { word: 'profession', hint: 'A job that needs special training, like a doctor' },
+  { word: 'impression', hint: 'The idea or feeling you get about someone' },
+  { word: 'compassion', hint: 'Caring about others when they are sad or hurt' },
 ] as const
 
 export const SPELLING_TIMER_DURATION_SECONDS = 60
